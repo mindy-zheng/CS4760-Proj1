@@ -67,19 +67,19 @@ int main(int argc, char** argv) {
 		char iter[10];  // holds char array of size 10 for string representation   
 		sprintf(iter, "%d", t);	//sprintf converts int to string for execl funct to work. 	       
 		// need to convert int to string   
-		execl("./worker", "worker", iter, NULL); //	
+		execl("./worker", "worker", iter, NULL); // runs worker.c with iter(t argument) 	
 	} else {
 		i++; 
 	}
 	} 
-
+	
+	// Wait until all child processes have finished running 
 	while (i > 0) {
 		wait(NULL); 
 		i--; 
 	} 
-		
-	
-        return EXIT_SUCCESS;
+		 
+        return EXIT_SUCCESS; 
 }
 
 
